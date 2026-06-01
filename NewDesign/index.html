@@ -1,0 +1,1332 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="株式会社キョウエイ — ステンレス研磨・加工のプロフェッショナル。低コスト・短納期・安定した品質を実現。千葉県八千代市・鎌ヶ谷市。">
+  <meta name="keywords" content="キョウエイ,ステンレス,研磨,ヘアライン,ブラスト,鏡面,バイブレーション,鋼材,千葉,八千代,鎌ヶ谷">
+  <title>株式会社キョウエイ — Bright Quality, Warm Services.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ===== DESIGN TOKENS ===== */
+    :root {
+      --color-bg:             #ffffff;
+      --color-text:           #222222;
+      --color-text-secondary: #666666;
+      --color-accent:         #888888;
+      --color-secondary:      #aaaaaa;
+      --color-border:         #e5e5e5;
+      --color-surface:        #f5f5f5;
+      --spacing-1:  20px;
+      --spacing-2:  24px;
+      --spacing-3:  72px;
+      --spacing-4:  16px;
+      --spacing-5:  12px;
+      --spacing-6:  14px;
+      --spacing-7:  32px;
+      --container:  1200px;
+      --header-height: 72px;
+      --font: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.85;
+      letter-spacing: 0.05em;
+      color: var(--color-text);
+      background: var(--color-bg);
+      word-break: normal;
+      overflow-wrap: anywhere;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--color-accent); text-decoration: none; }
+    a:hover { color: var(--color-text); }
+    ul { list-style: none; }
+
+    /* ===== LAYOUT ===== */
+    .container {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--spacing-7);
+    }
+    .section { padding: var(--spacing-3) 0; }
+    .section--gray { background: var(--color-surface); }
+
+    /* ===== SECTION HEADER ===== */
+    .section__label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .section__title {
+      font-size: clamp(28px, 4vw, 54px);
+      font-weight: 400;
+      line-height: 1.35;
+      letter-spacing: 0.02em;
+      color: var(--color-text);
+      margin-bottom: var(--spacing-1);
+    }
+    .section__divider {
+      width: 40px;
+      height: 1px;
+      background: var(--color-accent);
+      margin-bottom: var(--spacing-7);
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      text-align: center;
+    }
+    .btn--primary { background: var(--color-accent); color: #fff; }
+    .btn--primary:hover { background: var(--color-text); color: #fff; }
+    .btn--outline { background: transparent; color: var(--color-text); border: 1px solid var(--color-text); }
+    .btn--outline:hover { background: var(--color-text); color: #fff; }
+
+    /* ===== NAV ===== */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      height: var(--header-height);
+      background: var(--color-bg);
+      border-bottom: 1px solid var(--color-border);
+      transition: box-shadow 0.3s;
+    }
+    .nav.is-scrolled { box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    .nav__inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--spacing-7);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--spacing-1);
+    }
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .nav__logo img {
+      height: 36px;
+      width: auto;
+      display: block;
+    }
+    .nav__links {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-7);
+    }
+    .nav__links a {
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.07em;
+      color: var(--color-text);
+      white-space: nowrap;
+      transition: color 0.2s;
+    }
+    .nav__links a:hover { color: var(--color-accent); }
+    .nav__links .nav__cta {
+      color: #fff;
+      background: var(--color-accent);
+      padding: 9px 20px;
+      font-size: 12px;
+    }
+    .nav__links .nav__cta:hover { background: var(--color-text); color: #fff; }
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      background: none;
+      border: none;
+    }
+    .nav__hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--color-text);
+      transition: all 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      margin-top: var(--header-height);
+      min-height: calc(100vh - var(--header-height));
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero__bg {
+      position: absolute;
+      inset: -4px;
+      background-image: url('../material/image.png');
+      background-size: cover;
+      background-position: center 40%;
+      background-repeat: no-repeat;
+      animation: kenBurns 14s cubic-bezier(0.0, 0.0, 0.2, 1) forwards;
+      will-change: transform;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.62);
+      z-index: 1;
+    }
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 60px var(--spacing-7);
+      max-width: 840px;
+    }
+    .hero__eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      margin-bottom: var(--spacing-1);
+      opacity: 0;
+      animation: fadeSlideUp 0.9s cubic-bezier(0.16,1,0.3,1) forwards 0.3s;
+    }
+    .hero__title {
+      font-size: clamp(36px, 6vw, 76px);
+      font-weight: 400;
+      line-height: 1.25;
+      letter-spacing: 0.02em;
+      color: var(--color-text);
+      margin-bottom: var(--spacing-2);
+    }
+    .hero__title-line {
+      display: block;
+      overflow: hidden;
+    }
+    .hero__title-line > span {
+      display: block;
+      opacity: 0;
+      animation: revealUp 1.1s cubic-bezier(0.16,1,0.3,1) forwards;
+    }
+    .hero__title-line:nth-child(1) > span { animation-delay: 0.55s; }
+    .hero__title-line:nth-child(2) > span { animation-delay: 0.82s; }
+    .hero__subtitle {
+      font-size: clamp(14px, 1.8vw, 18px);
+      line-height: 1.9;
+      letter-spacing: 0.06em;
+      color: var(--color-text-secondary);
+      margin-bottom: var(--spacing-7);
+      opacity: 0;
+      animation: fadeSlideUp 0.9s cubic-bezier(0.16,1,0.3,1) forwards 1.25s;
+    }
+    .hero__actions {
+      display: flex;
+      gap: var(--spacing-1);
+      justify-content: center;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeSlideUp 0.9s cubic-bezier(0.16,1,0.3,1) forwards 1.55s;
+    }
+
+    /* ===== ABOUT ===== */
+    .about__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .about__photo {
+      width: 100%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+    }
+    .about__table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    .about__table th,
+    .about__table td {
+      padding: 13px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--color-border);
+      vertical-align: top;
+      line-height: 1.75;
+    }
+    .about__table th {
+      width: 130px;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .about__table tr:last-child th,
+    .about__table tr:last-child td { border-bottom: none; }
+
+    /* CEO */
+    .ceo {
+      margin-top: 64px;
+      padding-top: 64px;
+      border-top: 1px solid var(--color-border);
+    }
+    .ceo__inner {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    .ceo__label { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: var(--color-accent); text-transform: uppercase; margin-bottom: 10px; }
+    .ceo__heading { font-size: 22px; font-weight: 400; line-height: 1.5; color: var(--color-text); }
+    .ceo__body p {
+      font-size: 15px;
+      line-height: 2.0;
+      letter-spacing: 0.05em;
+      color: var(--color-text);
+      margin-bottom: var(--spacing-2);
+    }
+    .ceo__body p:last-child { margin-bottom: 0; }
+    .ceo__sign {
+      font-size: 13px;
+      color: var(--color-text-secondary);
+      text-align: right;
+      margin-top: var(--spacing-1);
+      letter-spacing: 0.06em;
+    }
+
+    /* ===== BUSINESS ===== */
+    .business__lead {
+      font-size: 16px;
+      line-height: 1.95;
+      letter-spacing: 0.05em;
+      max-width: 760px;
+      margin-bottom: 48px;
+    }
+    .business__heading-sub {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 16px;
+      letter-spacing: 0.05em;
+    }
+    .business__groups {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-7);
+    }
+    .business__group { background: var(--color-bg); border: 1px solid var(--color-border); padding: var(--spacing-7); }
+    .business__group-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--color-accent);
+      text-transform: uppercase;
+      padding-bottom: var(--spacing-5);
+      border-bottom: 1px solid var(--color-border);
+      margin-bottom: var(--spacing-1);
+    }
+    .business__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .business__tag {
+      font-size: 13px;
+      padding: 5px 13px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      color: var(--color-text);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    /* ===== PORTFOLIO ===== */
+    .portfolio__sub { font-size: 15px; font-weight: 600; letter-spacing: 0.06em; padding-bottom: var(--spacing-5); border-bottom: 2px solid var(--color-border); margin-bottom: var(--spacing-7); }
+    .portfolio__samples {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-1);
+      margin-bottom: 60px;
+    }
+    .sample-card { background: var(--color-surface); }
+    .sample-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+    .sample-card__body { padding: var(--spacing-1); }
+    .sample-card__name { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+    .sample-card__desc { font-size: 12px; line-height: 1.8; letter-spacing: 0.04em; color: var(--color-text-secondary); }
+
+    .portfolio__case {
+      padding: var(--spacing-7) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .portfolio__case:first-of-type { padding-top: 0; }
+    .portfolio__case:last-of-type { border-bottom: none; }
+    .portfolio__case-label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--spacing-5);
+    }
+    .portfolio__case-images {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-5);
+      margin-bottom: var(--spacing-5);
+    }
+    .portfolio__case-images img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+    .portfolio__case-desc { font-size: 14px; line-height: 1.8; letter-spacing: 0.04em; color: var(--color-text-secondary); }
+
+    /* ===== EQUIPMENT ===== */
+    .equipment__photo { max-width: 680px; margin-bottom: 48px; }
+    .equipment__block { margin-bottom: 48px; }
+    .equipment__block:last-child { margin-bottom: 0; }
+    .equipment__block-title { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+    .equipment__block-meta { font-size: 13px; color: var(--color-text-secondary); margin-bottom: var(--spacing-1); }
+    .equipment__table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .equipment__table th,
+    .equipment__table td {
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--color-border);
+      border-right: 1px solid var(--color-border);
+      vertical-align: middle;
+      line-height: 1.6;
+    }
+    .equipment__table th {
+      background: var(--color-surface);
+      font-weight: 600;
+      font-size: 12px;
+      color: var(--color-text-secondary);
+    }
+    .equipment__table thead th { border-bottom: 2px solid var(--color-border); }
+    .equipment__table td:last-child,
+    .equipment__table th:last-child { border-right: none; }
+    .equipment__table tr:last-child td,
+    .equipment__table tr:last-child th { border-bottom: none; }
+
+    /* ===== HISTORY ===== */
+    .history__timeline { position: relative; padding-left: 160px; }
+    .history__timeline::before {
+      content: '';
+      position: absolute;
+      left: 130px;
+      top: 8px; bottom: 8px;
+      width: 1px;
+      background: var(--color-border);
+    }
+    .history__item {
+      position: relative;
+      padding: 8px 0 8px var(--spacing-7);
+      display: flex;
+      gap: var(--spacing-7);
+    }
+    .history__item::before {
+      content: '';
+      position: absolute;
+      left: -36px;
+      top: 14px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-accent);
+    }
+    .history__date {
+      position: absolute;
+      left: -160px;
+      top: 8px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--color-accent);
+      text-align: right;
+      width: 130px;
+      line-height: 1.6;
+    }
+    .history__text {
+      font-size: 14px;
+      line-height: 1.85;
+      letter-spacing: 0.04em;
+    }
+
+    /* ===== ACCESS ===== */
+    .access__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 48px;
+    }
+    .access__card { background: var(--color-surface); padding: var(--spacing-7); }
+    .access__card-name { font-size: 16px; font-weight: 700; margin-bottom: var(--spacing-1); }
+    .access__row {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 10px;
+      margin-bottom: 8px;
+      font-size: 14px;
+      line-height: 1.7;
+    }
+    .access__row-label { font-size: 12px; font-weight: 700; color: var(--color-text-secondary); padding-top: 2px; }
+    .access__map { margin-top: var(--spacing-1); height: 260px; }
+    .access__map iframe { width: 100%; height: 100%; border: none; }
+
+    .access__cta {
+      text-align: center;
+      padding: 60px var(--spacing-7);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+    }
+    .access__cta-title { font-size: 20px; font-weight: 400; margin-bottom: 8px; }
+    .access__cta-email { font-size: 18px; color: var(--color-accent); margin-bottom: var(--spacing-7); display: block; }
+
+    /* ===== MUSUS ===== */
+    .musus {
+      padding: 52px 0;
+      border-top: 1px solid var(--color-border);
+      text-align: center;
+    }
+    .musus__logo { margin: 0 auto 12px; height: 72px; width: auto; object-fit: contain; }
+    .musus__text { font-size: 13px; color: var(--color-text-secondary); letter-spacing: 0.06em; }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--color-text);
+      color: rgba(255,255,255,0.5);
+      padding: 28px 0;
+    }
+    .footer__inner {
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 var(--spacing-7);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--spacing-1);
+      flex-wrap: wrap;
+    }
+    .footer__logo { font-size: 15px; font-weight: 700; color: #fff; letter-spacing: 0.12em; }
+    .footer__copy { font-size: 12px; letter-spacing: 0.04em; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .about__grid { grid-template-columns: 1fr; gap: 40px; }
+      .ceo__inner { grid-template-columns: 1fr; gap: 24px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav__links {
+        display: none;
+        position: absolute;
+        top: var(--header-height);
+        left: 0; right: 0;
+        background: var(--color-bg);
+        border-bottom: 1px solid var(--color-border);
+        flex-direction: column;
+        padding: 8px 0;
+        gap: 0;
+      }
+      .nav__links.is-open { display: flex; }
+      .nav__links li { border-bottom: 1px solid var(--color-border); }
+      .nav__links a { display: block; padding: 14px var(--spacing-7); }
+      .nav__links .nav__cta { background: none; color: var(--color-accent) !important; padding: 14px var(--spacing-7); }
+      .nav__hamburger { display: flex; }
+      .business__groups { grid-template-columns: 1fr; }
+      .portfolio__samples { grid-template-columns: repeat(2, 1fr); }
+      .portfolio__case-images { grid-template-columns: repeat(2, 1fr); }
+      .access__grid { grid-template-columns: 1fr; }
+      .footer__inner { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 640px) {
+      .container { padding: 0 var(--spacing-1); }
+      .section { padding: 48px 0; }
+      .portfolio__samples { grid-template-columns: 1fr; }
+      .portfolio__case-images { grid-template-columns: 1fr; }
+      .history__timeline { padding-left: 0; }
+      .history__timeline::before { display: none; }
+      .history__item { flex-direction: column; padding-left: 0; }
+      .history__item::before { display: none; }
+      .history__date { position: static; width: auto; text-align: left; margin-bottom: 2px; }
+    }
+
+    /* ===================================================
+       ANIMATIONS
+    =================================================== */
+
+    /* --- Keyframes --- */
+    @keyframes kenBurns {
+      from { transform: scale(1.10); }
+      to   { transform: scale(1.00); }
+    }
+    @keyframes revealUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
+    }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeSlideLeft {
+      from { opacity: 0; transform: translateX(-40px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes lineGrow {
+      from { transform: scaleX(0); }
+      to   { transform: scaleX(1); }
+    }
+
+    /* --- Scroll reveal: base --- */
+    .js-reveal {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 0.95s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.95s cubic-bezier(0.16,1,0.3,1);
+    }
+    .js-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .js-reveal-left {
+      opacity: 0;
+      transform: translateX(-52px);
+      transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.9s cubic-bezier(0.16,1,0.3,1);
+    }
+    .js-reveal-left.is-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* --- Scroll reveal: stagger children --- */
+    .js-stagger > * {
+      opacity: 0;
+      transform: translateY(48px);
+      transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    }
+    .js-stagger.is-visible > *:nth-child(1)  { opacity:1; transform:none; transition-delay:0.00s; }
+    .js-stagger.is-visible > *:nth-child(2)  { opacity:1; transform:none; transition-delay:0.10s; }
+    .js-stagger.is-visible > *:nth-child(3)  { opacity:1; transform:none; transition-delay:0.20s; }
+    .js-stagger.is-visible > *:nth-child(4)  { opacity:1; transform:none; transition-delay:0.30s; }
+    .js-stagger.is-visible > *:nth-child(5)  { opacity:1; transform:none; transition-delay:0.40s; }
+    .js-stagger.is-visible > *:nth-child(n+6){ opacity:1; transform:none; transition-delay:0.48s; }
+
+    /* --- Section divider line draw --- */
+    .section__divider {
+      transform-origin: left center;
+      transform: scaleX(0);
+      transition: transform 1.1s cubic-bezier(0.16,1,0.3,1);
+    }
+    .section__divider.is-visible { transform: scaleX(1); }
+
+    /* --- Business tags: pop-in stagger --- */
+    .business__tags .business__tag {
+      opacity: 0;
+      transform: scale(0.80) translateY(10px);
+      transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
+    }
+    .business__group.is-visible .business__tag { opacity:1; transform:scale(1) translateY(0); }
+    .business__group.is-visible .business__tag:nth-child(1)  { transition-delay:0.00s; }
+    .business__group.is-visible .business__tag:nth-child(2)  { transition-delay:0.04s; }
+    .business__group.is-visible .business__tag:nth-child(3)  { transition-delay:0.08s; }
+    .business__group.is-visible .business__tag:nth-child(4)  { transition-delay:0.12s; }
+    .business__group.is-visible .business__tag:nth-child(5)  { transition-delay:0.16s; }
+    .business__group.is-visible .business__tag:nth-child(6)  { transition-delay:0.20s; }
+    .business__group.is-visible .business__tag:nth-child(7)  { transition-delay:0.24s; }
+    .business__group.is-visible .business__tag:nth-child(8)  { transition-delay:0.28s; }
+    .business__group.is-visible .business__tag:nth-child(9)  { transition-delay:0.32s; }
+    .business__group.is-visible .business__tag:nth-child(10) { transition-delay:0.36s; }
+    .business__group.is-visible .business__tag:nth-child(n+11){ transition-delay:0.40s; }
+
+    /* --- History: slide-in cascade from left --- */
+    .history__timeline .history__item {
+      opacity: 0;
+      transform: translateX(-48px);
+      transition: opacity 0.75s cubic-bezier(0.16,1,0.3,1),
+                  transform 0.75s cubic-bezier(0.16,1,0.3,1);
+    }
+    .history__timeline.is-visible .history__item { opacity:1; transform:none; }
+    .history__timeline.is-visible .history__item:nth-child(1)  { transition-delay:0.00s; }
+    .history__timeline.is-visible .history__item:nth-child(2)  { transition-delay:0.04s; }
+    .history__timeline.is-visible .history__item:nth-child(3)  { transition-delay:0.08s; }
+    .history__timeline.is-visible .history__item:nth-child(4)  { transition-delay:0.12s; }
+    .history__timeline.is-visible .history__item:nth-child(5)  { transition-delay:0.16s; }
+    .history__timeline.is-visible .history__item:nth-child(6)  { transition-delay:0.20s; }
+    .history__timeline.is-visible .history__item:nth-child(7)  { transition-delay:0.24s; }
+    .history__timeline.is-visible .history__item:nth-child(8)  { transition-delay:0.28s; }
+    .history__timeline.is-visible .history__item:nth-child(9)  { transition-delay:0.32s; }
+    .history__timeline.is-visible .history__item:nth-child(10) { transition-delay:0.36s; }
+    .history__timeline.is-visible .history__item:nth-child(11) { transition-delay:0.40s; }
+    .history__timeline.is-visible .history__item:nth-child(12) { transition-delay:0.44s; }
+    .history__timeline.is-visible .history__item:nth-child(13) { transition-delay:0.48s; }
+    .history__timeline.is-visible .history__item:nth-child(14) { transition-delay:0.52s; }
+    .history__timeline.is-visible .history__item:nth-child(n+15){ transition-delay:0.56s; }
+
+    /* --- Portfolio: image hover zoom --- */
+    .sample-card { overflow: hidden; }
+    .sample-card img {
+      transition: transform 0.75s cubic-bezier(0.16,1,0.3,1);
+    }
+    .sample-card:hover img { transform: scale(1.08); }
+    .portfolio__case-images { overflow: hidden; }
+    .portfolio__case-images img {
+      transition: transform 0.75s cubic-bezier(0.16,1,0.3,1);
+    }
+    .portfolio__case-images img:hover { transform: scale(1.06); }
+
+    /* --- About photo hover --- */
+    .about__photo {
+      transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    }
+    .about__photo:hover { transform: scale(1.02); }
+
+    /* --- Btn hover lift --- */
+    .btn {
+      transition: background 0.2s, color 0.2s, border-color 0.2s,
+                  transform 0.2s cubic-bezier(0.16,1,0.3,1),
+                  box-shadow 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+
+    /* --- Nav logo fade-in on load --- */
+    .nav__logo img {
+      animation: fadeSlideUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards 0.1s;
+      opacity: 0;
+    }
+    .nav__links {
+      animation: fadeSlideUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards 0.2s;
+      opacity: 0;
+    }
+
+    /* --- Reduce motion --- */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__logo">
+        <img src="logo_trimmed.png" alt="KYOEI Inc.">
+      </a>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#about">会社概要</a></li>
+        <li><a href="#business">業務内容</a></li>
+        <li><a href="#portfolio">研磨見本</a></li>
+        <li><a href="#history">沿革</a></li>
+        <li><a href="#access">アクセス</a></li>
+        <li><a href="#access" class="nav__cta btn">お問い合わせ</a></li>
+      </ul>
+      <button class="nav__hamburger" id="hamburger" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__content">
+      <p class="hero__eyebrow">株式会社キョウエイ &mdash; since 1982</p>
+      <h1 class="hero__title">
+        <span class="hero__title-line"><span>Bright Quality,</span></span>
+        <span class="hero__title-line"><span>Warm Services.</span></span>
+      </h1>
+      <p class="hero__subtitle">
+        ステンレス研磨・加工のプロフェッショナル。<br>
+        低コスト・短納期・安定した品質を実現。
+      </p>
+      <div class="hero__actions">
+        <a href="#business" class="btn btn--primary">業務内容を見る</a>
+        <a href="#access" class="btn btn--outline">お問い合わせ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <div class="container">
+      <p class="section__label">About</p>
+      <h2 class="section__title">会社概要</h2>
+      <div class="section__divider"></div>
+
+      <div class="about__grid">
+        <div>
+          <img src="../OldDesign/style/images/art/about.jpg" alt="キョウエイ工場" class="about__photo">
+        </div>
+        <div>
+          <table class="about__table">
+            <tbody>
+              <tr>
+                <th>社名</th>
+                <td>株式会社キョウエイ</td>
+              </tr>
+              <tr>
+                <th>英文社名</th>
+                <td>Kyoei Inc.</td>
+              </tr>
+              <tr>
+                <th>主な事業内容</th>
+                <td>ステンレスの研磨および加工<br>鋼材の切断</td>
+              </tr>
+              <tr>
+                <th>本社所在地</th>
+                <td>〒276-0001<br>千葉県八千代市小池288-1</td>
+              </tr>
+              <tr>
+                <th>代表者名</th>
+                <td>武藤 敦</td>
+              </tr>
+              <tr>
+                <th>従業員数</th>
+                <td>31名</td>
+              </tr>
+              <tr>
+                <th>主要取引銀行</th>
+                <td>
+                  東京三菱UFJ銀行　船橋支社<br>
+                  千葉銀行　新八千代支店<br>
+                  千葉興行銀行　新八千代支店
+                </td>
+              </tr>
+              <tr>
+                <th>資本金</th>
+                <td>¥10,000,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- CEO Message -->
+      <div class="ceo">
+        <div class="ceo__inner">
+          <div>
+            <p class="ceo__label">Message</p>
+            <h3 class="ceo__heading">代表取締役<br>挨拶</h3>
+          </div>
+          <div class="ceo__body">
+            <p>平素は、格別のご愛顧を賜り厚く御礼申し上げます。弊社は昭和57年創業以来ステンレス鋼材の研磨加工一筋に38年目を迎えることができました。この間、お取引先様の暖かいご支援とご指導をいただき、又、真面目で熱心な従業員に恵まれ「より良い製品を、より早く、より安く」をモットーに今日に至っております。</p>
+            <p>これまで培ってきた技術やノウハウ等の良い伝統を受け継ぎながら、現代に合わせたオートメーション化を進めてきたことで「低コスト」で「短納期」そして「安定した品質」を実現しております。これまで全国数多くの建築物にもご使用いただき、街中で私たちが加工した製品を見かける機会も多くあります、それが私たちの喜びであり、やりがいに繋がっております。</p>
+            <p>私たちはこのステンレスという素晴らしい素材の付加価値を高めるべく新たな知識を吸収し、微力ながらも街を「輝かせる」一助となれるよう従業員共々努力いたしてまいります。今後共、益々のご支援とご鞭撻と共に、御下命下さりますようお願い申し上げます。</p>
+            <p class="ceo__sign">代表取締役社長　武藤 敦</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BUSINESS ===== -->
+  <section class="section section--gray" id="business">
+    <div class="container">
+      <p class="section__label">Business</p>
+      <h2 class="section__title">業務内容</h2>
+      <div class="section__divider"></div>
+      <p class="business__heading-sub">信頼と実績のステンレス研磨業務</p>
+      <p class="business__lead">あらゆる研磨のご要望にお応えする、最新の自動研磨機および専用機を完備。「低コスト」で「短納期」そして「安定した品質」を誇ります。鋼種、形状、仕様に関わらず、研磨・加工のことなら何でもご相談ください。</p>
+
+      <div class="business__groups">
+        <div class="business__group">
+          <p class="business__group-title">研磨品</p>
+          <div class="business__tags">
+            <span class="business__tag">角パイプ</span>
+            <span class="business__tag">丸パイプ</span>
+            <span class="business__tag">異形パイプ</span>
+            <span class="business__tag">フラットバー</span>
+            <span class="business__tag">四角棒・丸棒</span>
+            <span class="business__tag">アングル</span>
+            <span class="business__tag">T形鋼</span>
+            <span class="business__tag">H形鋼</span>
+            <span class="business__tag">チャンネル</span>
+            <span class="business__tag">その他</span>
+          </div>
+        </div>
+
+        <div class="business__group">
+          <p class="business__group-title">研磨方法</p>
+          <div class="business__tags">
+            <span class="business__tag">ベルト研磨</span>
+            <span class="business__tag">フラップホイール研磨</span>
+            <span class="business__tag">バフ研磨</span>
+            <span class="business__tag">砥石研磨</span>
+            <span class="business__tag">ブラスト加工</span>
+            <span class="business__tag">その他</span>
+          </div>
+        </div>
+
+        <div class="business__group">
+          <p class="business__group-title">研磨仕上げ</p>
+          <div class="business__tags">
+            <span class="business__tag">#400</span>
+            <span class="business__tag">#600</span>
+            <span class="business__tag">#800</span>
+            <span class="business__tag">#1000</span>
+            <span class="business__tag">HL（ヘアライン）</span>
+            <span class="business__tag">バイブレーション</span>
+            <span class="business__tag">ブラスト</span>
+            <span class="business__tag">その他</span>
+          </div>
+        </div>
+
+        <div class="business__group">
+          <p class="business__group-title">主な用途</p>
+          <div class="business__tags">
+            <span class="business__tag">階段手すり</span>
+            <span class="business__tag">厨房設備</span>
+            <span class="business__tag">半導体製造装置</span>
+            <span class="business__tag">橋梁手すり</span>
+            <span class="business__tag">食品機械</span>
+            <span class="business__tag">クリーンルーム</span>
+            <span class="business__tag">非常階段</span>
+            <span class="business__tag">ショーケース</span>
+            <span class="business__tag">洗浄装置</span>
+            <span class="business__tag">防護柵</span>
+            <span class="business__tag">冷凍ケース</span>
+            <span class="business__tag">医療器具</span>
+            <span class="business__tag">カーテンウォール</span>
+            <span class="business__tag">化学機械</span>
+            <span class="business__tag">モニュメント</span>
+            <span class="business__tag">玄関</span>
+            <span class="business__tag">薬品機械</span>
+            <span class="business__tag">看板</span>
+            <span class="business__tag">プール施設</span>
+            <span class="business__tag">食品棚</span>
+            <span class="business__tag">広告塔</span>
+            <span class="business__tag">受水タンク</span>
+            <span class="business__tag">店舗内装</span>
+            <span class="business__tag">トラック架装部品</span>
+            <span class="business__tag">グレーチング</span>
+            <span class="business__tag">エレベーター</span>
+            <span class="business__tag">シャッター</span>
+            <span class="business__tag">船舶部品</span>
+            <span class="business__tag">エスカレーター</span>
+            <span class="business__tag">自動車部品</span>
+            <span class="business__tag">鉄道車両</span>
+            <span class="business__tag">オートバイ部品</span>
+            <span class="business__tag">アンテナ支柱</span>
+            <span class="business__tag">ホテルエントランス</span>
+            <span class="business__tag">公園遊具</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PORTFOLIO ===== -->
+  <section class="section" id="portfolio">
+    <div class="container">
+      <p class="section__label">Portfolio</p>
+      <h2 class="section__title">研磨見本 &amp; 実績</h2>
+      <div class="section__divider"></div>
+
+      <!-- Finish Samples -->
+      <h3 class="portfolio__sub">研磨見本</h3>
+      <div class="portfolio__samples">
+        <div class="sample-card">
+          <img src="../OldDesign/style/images/portfolio/e1.jpg" alt="ブラスト">
+          <div class="sample-card__body">
+            <p class="sample-card__name">ブラスト</p>
+            <p class="sample-card__desc">光沢のある美しい梨地。ガラスビーズを鋼材表面に高圧空気で吹き付け仕上げたもの。マスキングを施し模様を付ける事も可能です。</p>
+          </div>
+        </div>
+        <div class="sample-card">
+          <img src="../OldDesign/style/images/portfolio/e2.jpg" alt="ヘアライン">
+          <div class="sample-card__body">
+            <p class="sample-card__name">ヘアライン</p>
+            <p class="sample-card__desc">長く連続した研磨目をつけた仕上げ。適度な粒度（#150〜#240）の研磨ベルトで髪の毛のような連続した研磨目をつけたもの。</p>
+          </div>
+        </div>
+        <div class="sample-card">
+          <img src="../OldDesign/style/images/portfolio/e3.jpg" alt="バイブレーション">
+          <div class="sample-card__body">
+            <p class="sample-card__name">バイブレーション</p>
+            <p class="sample-card__desc">無方向性ヘアライン。パーマネントヘアラインとも言います。多軸水平研磨により、無方向性の研磨目をつけた仕上げです。</p>
+          </div>
+        </div>
+        <div class="sample-card">
+          <img src="../OldDesign/style/images/portfolio/e4.jpg" alt="#400">
+          <div class="sample-card__body">
+            <p class="sample-card__name">#400</p>
+            <p class="sample-card__desc">BAに近い光沢。最も一般的な仕上げの一つで、下地処理後サイザルバフで仕上げたもの。</p>
+          </div>
+        </div>
+        <div class="sample-card">
+          <img src="../OldDesign/style/images/portfolio/e5.jpg" alt="#800">
+          <div class="sample-card__body">
+            <p class="sample-card__name">#800</p>
+            <p class="sample-card__desc">反射率の高い鏡面。順に細かい粒度の研磨剤で研磨した後、バイアスバフで仕上げたもの。</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Portfolio Cases -->
+      <h3 class="portfolio__sub">キョウエイポートフォリオ</h3>
+
+      <div class="portfolio__case">
+        <p class="portfolio__case-label">アングル内面＋コバ面 HL研磨</p>
+        <div class="portfolio__case-images">
+          <img src="../OldDesign/style/images/portfolio/p1.jpg" alt="施工例1">
+          <img src="../OldDesign/style/images/portfolio/p2.jpg" alt="施工例2">
+          <img src="../OldDesign/style/images/portfolio/p3.jpg" alt="施工例3">
+        </div>
+        <p class="portfolio__case-desc">1階〜51階迄の全ての角に使われています。</p>
+      </div>
+
+      <div class="portfolio__case">
+        <p class="portfolio__case-label">フラットバー #150研磨</p>
+        <div class="portfolio__case-images">
+          <img src="../OldDesign/style/images/portfolio/p4.jpg" alt="施工例4">
+          <img src="../OldDesign/style/images/portfolio/p5.jpg" alt="施工例5">
+          <img src="../OldDesign/style/images/portfolio/p6.jpg" alt="施工例6">
+        </div>
+        <p class="portfolio__case-desc">2本合わせたフラットバーを四角い枠状に組み、橋の周りを囲うように使われています。</p>
+      </div>
+
+      <div class="portfolio__case">
+        <p class="portfolio__case-label">角パイプ #400研磨</p>
+        <div class="portfolio__case-images">
+          <img src="../OldDesign/style/images/portfolio/p7.jpg" alt="施工例7">
+          <img src="../OldDesign/style/images/portfolio/p8.jpg" alt="施工例8">
+          <img src="../OldDesign/style/images/portfolio/p9.jpg" alt="施工例9">
+        </div>
+        <p class="portfolio__case-desc">柵として外周に使われています。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EQUIPMENT ===== -->
+  <section class="section section--gray" id="equipment">
+    <div class="container">
+      <p class="section__label">Equipment</p>
+      <h2 class="section__title">保有設備</h2>
+      <div class="section__divider"></div>
+
+      <img src="../OldDesign/IMG_0014.png" alt="キョウエイ工場設備" class="equipment__photo">
+
+      <!-- Yachiyo -->
+      <div class="equipment__block">
+        <h3 class="equipment__block-title">八千代工場</h3>
+        <p class="equipment__block-meta">敷地 2,633㎡ ／ 工場 587㎡</p>
+        <table class="equipment__table">
+          <thead>
+            <tr>
+              <th>設備名</th>
+              <th>台数</th>
+              <th>厚み</th>
+              <th>幅</th>
+              <th>長さ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>角パイプ自動研磨機</td><td>2機</td><td>12〜150㎜</td><td>12〜150㎜</td><td>6m</td></tr>
+            <tr><td>フラットバー自動研磨機</td><td>2機</td><td>3〜150㎜</td><td>20〜150㎜</td><td>6m</td></tr>
+            <tr><td>角・丸 兼用自動研磨機</td><td>1機</td><td>3〜140㎜</td><td>20〜140㎜</td><td>6m</td></tr>
+            <tr><td>大型角パイプ自動研磨機</td><td>1機</td><td>30〜300㎜</td><td>30〜300㎜</td><td>6m</td></tr>
+            <tr><td>トラバース平面自動研磨機</td><td>1機</td><td>3〜200㎜</td><td>15〜200㎜</td><td>6m</td></tr>
+            <tr><td>台型研磨機</td><td>1機</td><td>2〜100㎜</td><td>10〜100㎜</td><td>6m</td></tr>
+            <tr><td>丸型センターレス研磨機</td><td>1機</td><td>5Φ〜89.1Φ</td><td>—</td><td>6m</td></tr>
+            <tr><td>両頭バフレース機</td><td>1機</td><td>—</td><td>—</td><td>—</td></tr>
+            <tr><td>ドレッサー</td><td>1機</td><td>—</td><td>—</td><td>—</td></tr>
+            <tr><td>天井クレーン</td><td>4機</td><td colspan="2">2.8t × 3機、1.0t × 1機</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Kamagaya -->
+      <div class="equipment__block">
+        <h3 class="equipment__block-title">鎌ヶ谷工場</h3>
+        <p class="equipment__block-meta">敷地 1,830㎡ ／ 工場 542.5㎡</p>
+        <table class="equipment__table">
+          <thead>
+            <tr>
+              <th>設備名</th>
+              <th>台数</th>
+              <th>厚み</th>
+              <th>幅</th>
+              <th>長さ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>アングル自動研磨機</td><td>3機</td><td>3〜15㎜</td><td>20×125㎜</td><td>6m</td></tr>
+            <tr><td>フラットバー自動研磨機</td><td>3機</td><td>3〜150㎜</td><td>20〜150㎜</td><td>6m</td></tr>
+            <tr><td>天井クレーン</td><td>3機</td><td colspan="2">2.8t</td><td>—</td></tr>
+            <tr><td>帯鋸切断機</td><td>1機</td><td>20〜250㎜</td><td>20〜250㎜</td><td>6m</td></tr>
+            <tr><td>丸鋸切断機</td><td>1機</td><td>5〜100㎜</td><td>5〜100㎜</td><td>6m</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Vehicles -->
+      <div class="equipment__block">
+        <h3 class="equipment__block-title">車両</h3>
+        <table class="equipment__table" style="max-width:380px;">
+          <tbody>
+            <tr><td>トラック</td><td>1台</td><td>8.5t</td></tr>
+            <tr><td>フォークリフト</td><td>1台</td><td>3.0t</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HISTORY ===== -->
+  <section class="section" id="history">
+    <div class="container">
+      <p class="section__label">History</p>
+      <h2 class="section__title">沿革</h2>
+      <div class="section__divider"></div>
+
+      <div class="history__timeline">
+        <div class="history__item">
+          <span class="history__date">1982年9月</span>
+          <span class="history__text">東京都江戸川区にて、有限会社共栄ステンレス研磨工業設立</span>
+        </div>
+        <div class="history__item">
+          <span class="history__date">1984年4月</span>
+          <span class="history__text">メーカー様より依頼を受けて角パイプの研磨を開始</span>
+        </div>
+        <div class="history__item">
+          <span class="history__date">1984年9月</span>
+          <span class="history__text">工場を拡張し、アングル全面研磨を本格的に開始</span>
+        </div>
+        <div class="history__item">
+          <span class="history__date">1985年4月</span>
+          <span class="history__text">工場を拡張し、角パイプ及びフラットバーの自動研磨を開始</span>
+        </div>
+        <div class="history__item">
+          <span class="history__date">1987年5月</span>
+          <span class="history__text">業務拡張に伴い、本社・工場を千葉県八千代市島田台に移転</span>
+        </div>
+        <div class="history__item">
+          <span class="history__date">1987年6月</span>
+          <span class="history__text">アングル内面・外面・コバ面の同時研磨を可能とし、品質と生産能の大幅アップを実現</span>
+        </div>
+        <div class="history__item">
+          <span class="history__date">1989年5月</span>
+          <span class="history__text">角パイプ専用自動研磨機12Hと6H、2機を導入し #400角パイプの大幅増産を実現</span>
+        </div>
+        <div class="history__item">
+          <span class="history__date">1991年2月</span>
+          <span class="history__text">八千代市大和田新田に第二工場が竣工</span>
+        </div>
+        <div class="history__item">
+          <span class="history__date">1996年7月</span>
+          <span class="history__text">現在の八千代市小池に本社工場が竣工し移転</span>
+        </div>
+        <div class="history__item">
+          <span class="history__date">2004年10月</span>
+          <span class="history__text">アングル専用工場を千葉県船橋市鈴身町に開設</span>
+        </div>
+        <div class="history__item">
+          <span class="history__date">2005年9月</span>
+          <span class="history__text">資本金を1,000万円に増資、株式会社に改組し社名を株式会社キョウエイに変更</span>
+        </div>
+        <div class="history__item">
+          <span class="history__date">2007年11月</span>
+          <span class="history__text">切断・精密矯正専用工場を船橋市鈴身町に開設し切断・矯正を開始</span>
+        </div>
+        <div class="history__item">
+          <span class="history__date">2013年12月</span>
+          <span class="history__text">鎌ヶ谷工場を開設、第二工場を千葉県鎌ヶ谷市へ移転</span>
+        </div>
+        <div class="history__item">
+          <span class="history__date">2018年4月</span>
+          <span class="history__text">代表取締役社長に武藤敦が就任</span>
+        </div>
+        <div class="history__item">
+          <span class="history__date">2020年3月</span>
+          <span class="history__text">鎌ヶ谷工場にフルオートメーション設備導入、無人での研磨が実現</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ACCESS ===== -->
+  <section class="section section--gray" id="access">
+    <div class="container">
+      <p class="section__label">Access</p>
+      <h2 class="section__title">アクセス</h2>
+      <div class="section__divider"></div>
+
+      <div class="access__grid">
+        <div class="access__card">
+          <h3 class="access__card-name">第一工場（本社）</h3>
+          <div class="access__row">
+            <span class="access__row-label">住所</span>
+            <span>〒276-0001<br>千葉県八千代市小池288-1</span>
+          </div>
+          <div class="access__row">
+            <span class="access__row-label">電話</span>
+            <span><a href="tel:0474883191">047-488-3191</a></span>
+          </div>
+          <div class="access__row">
+            <span class="access__row-label">FAX</span>
+            <span>047-488-3192</span>
+          </div>
+          <div class="access__row">
+            <span class="access__row-label">Email</span>
+            <span><a href="mailto:info@kyoei-sk.co.jp">info@kyoei-sk.co.jp</a></span>
+          </div>
+          <div class="access__map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3236.985468618449!2d140.0919324!3d35.7757333!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60227e7cc0042051%3A0xd29e129d8ed51c13!2z5Y2D6JGJ55yM5YWr5Y2D5Luj5biC5bCP5rGg77yS77yY77yY4oiS77yR!5e0!3m2!1sja!2sjp!4v1393571088770"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="第一工場 地図"></iframe>
+          </div>
+        </div>
+
+        <div class="access__card">
+          <h3 class="access__card-name">鎌ヶ谷工場</h3>
+          <div class="access__row">
+            <span class="access__row-label">住所</span>
+            <span>〒273-0136<br>千葉県鎌ヶ谷市佐津間1167-3</span>
+          </div>
+          <div class="access__row">
+            <span class="access__row-label">電話</span>
+            <span><a href="tel:0474072793">047-407-2793</a></span>
+          </div>
+          <div class="access__row">
+            <span class="access__row-label">FAX</span>
+            <span>047-407-2794</span>
+          </div>
+          <div class="access__row">
+            <span class="access__row-label">Email</span>
+            <span><a href="mailto:info@kyoei-sk.co.jp">info@kyoei-sk.co.jp</a></span>
+          </div>
+          <div class="access__map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3236.3516836709077!2d140.0092055!3d35.7912987!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018820546372375%3A0x414151cfb96462a8!2z5Y2D6JGJ55yM6Y6M44Kx6LC35biC5L2Q5rSl6ZaT77yR77yR77yW77yX4oiS77yT!5e0!3m2!1sja!2sjp!4v1393570843858?hl=ja"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="鎌ヶ谷工場 地図"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="access__cta">
+        <h3 class="access__cta-title">お気軽にお問い合わせください</h3>
+        <a href="mailto:info@kyoei-sk.co.jp" class="access__cta-email">info@kyoei-sk.co.jp</a>
+        <br>
+        <a href="mailto:info@kyoei-sk.co.jp" class="btn btn--primary">メールでお問い合わせ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MUSUS ===== -->
+  <div class="musus">
+    <div class="container">
+      <img src="../OldDesign/musus_logo.jpg" alt="MUSUS" class="musus__logo">
+      <p class="musus__text">MUSUSはキョウエイオリジナルのプロダクトブランドです</p>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <span class="footer__logo">KYOEI Inc.</span>
+      <span class="footer__copy">since 19 Sep. 2008 &nbsp;/&nbsp; Copyright KYOEI Inc. 2014. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    /* ── Nav shadow ── */
+    var nav = document.getElementById('nav');
+    window.addEventListener('scroll', function() {
+      nav.classList.toggle('is-scrolled', window.scrollY > 10);
+    }, { passive: true });
+
+    /* ── Mobile hamburger ── */
+    var hamburger = document.getElementById('hamburger');
+    var navLinks  = document.getElementById('navLinks');
+    hamburger.addEventListener('click', function() {
+      navLinks.classList.toggle('is-open');
+    });
+    navLinks.querySelectorAll('a').forEach(function(a) {
+      a.addEventListener('click', function() { navLinks.classList.remove('is-open'); });
+    });
+
+    /* ── Scroll-triggered animations ── */
+    // Programmatically tag elements with animation classes
+    var revealMap = [
+      { sel: '.section__label',    cls: 'js-reveal' },
+      { sel: '.section__title',    cls: 'js-reveal' },
+      { sel: '.section__divider',  cls: null },          // already styled, just needs observer
+      { sel: '.about__photo',      cls: 'js-reveal-left' },
+      { sel: '.about__table',      cls: 'js-reveal' },
+      { sel: '.ceo',               cls: 'js-reveal' },
+      { sel: '.business__heading-sub', cls: 'js-reveal' },
+      { sel: '.business__lead',    cls: 'js-reveal' },
+      { sel: '.business__group',   cls: 'js-reveal' },   // tags stagger via CSS
+      { sel: '.portfolio__sub',    cls: 'js-reveal' },
+      { sel: '.sample-card',       cls: 'js-reveal' },
+      { sel: '.portfolio__case',   cls: 'js-reveal' },
+      { sel: '.equipment__block',  cls: 'js-reveal' },
+      { sel: '.equipment__photo',  cls: 'js-reveal' },
+      { sel: '.history__timeline', cls: null },           // children stagger via CSS
+      { sel: '.access__card',      cls: 'js-reveal' },
+      { sel: '.access__cta',       cls: 'js-reveal' },
+      { sel: '.musus',             cls: 'js-reveal' },
+    ];
+
+    var allTargets = [];
+
+    revealMap.forEach(function(item) {
+      document.querySelectorAll(item.sel).forEach(function(el, i) {
+        if (item.cls) el.classList.add(item.cls);
+        // Add stagger delay for sibling cards
+        if (item.cls === 'js-reveal') {
+          el.style.transitionDelay = (i % 4 * 0.1) + 's';
+        }
+        allTargets.push(el);
+      });
+    });
+
+    // Also observe dividers and history timeline directly
+    document.querySelectorAll('.section__divider, .history__timeline').forEach(function(el) {
+      if (!allTargets.includes(el)) allTargets.push(el);
+    });
+
+    // IntersectionObserver
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    allTargets.forEach(function(el) { observer.observe(el); });
+  </script>
+</body>
+</html>
