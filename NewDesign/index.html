@@ -1382,7 +1382,7 @@
       if (!canvas) return;
       var ctx = canvas.getContext('2d');
       var W, H, particles = [];
-      var N = 72, LINK = 150;
+      var N = 110, LINK = 150;
 
       function resize() {
         W = canvas.width  = canvas.offsetWidth;
@@ -1427,8 +1427,8 @@
             this.flashPhase = 1;
             this.flashDur = this.flashT = 3 + Math.floor(Math.random() * 3);
           }
-        } else if (Math.random() < 0.002) {
-          var n = 1 + Math.floor(Math.random() * 3);
+        } else if (Math.random() < 0.008) {
+          var n = 2 + Math.floor(Math.random() * 5);
           this.flashLeft  = n - 1;
           this.flashPhase = 1;
           this.flashDur = this.flashT = 3 + Math.floor(Math.random() * 3);
