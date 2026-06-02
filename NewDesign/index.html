@@ -1330,6 +1330,23 @@
     }, { threshold: 0.12 });
 
     allTargets.forEach(function(el) { observer.observe(el); });
+
+    /* ── Trigger animations after nav-link scroll ── */
+    function revealInView() {
+      allTargets.forEach(function(el) {
+        if (el.classList.contains('is-visible')) return;
+        var rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) {
+          el.classList.add('is-visible');
+          observer.unobserve(el);
+        }
+      });
+    }
+    document.querySelectorAll('.nav__links a[href^="#"]').forEach(function(a) {
+      a.addEventListener('click', function() {
+        [200, 450, 700, 950].forEach(function(t) { setTimeout(revealInView, t); });
+      });
+    });
   </script>
 </body>
 </html>
