@@ -1342,8 +1342,23 @@
         }
       });
     }
+
+    function resetSection(sectionEl) {
+      allTargets.forEach(function(el) {
+        if (sectionEl === el || sectionEl.contains(el)) {
+          el.style.transition = 'none';
+          el.classList.remove('is-visible');
+          void el.offsetHeight; // force reflow before re-enabling transitions
+          el.style.transition = '';
+          observer.observe(el);
+        }
+      });
+    }
+
     document.querySelectorAll('.nav__links a[href^="#"]').forEach(function(a) {
       a.addEventListener('click', function() {
+        var targetEl = document.getElementById(this.getAttribute('href').slice(1));
+        if (targetEl) resetSection(targetEl);
         [200, 450, 700, 950].forEach(function(t) { setTimeout(revealInView, t); });
       });
     });
